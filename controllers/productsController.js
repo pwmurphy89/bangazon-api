@@ -1,7 +1,5 @@
 const { getProducts, getOneProduct, deleteOneProduct, postProduct, putProduct } = require('../models/productsModel');
 
-const { dbDeleteEmployeeProducts } = require('../models/Employee-Product');
-
 module.exports.getAllProducts = (req, res, next) => {
     getProducts()
     .then( (products) => {

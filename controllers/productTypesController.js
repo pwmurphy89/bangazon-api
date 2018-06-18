@@ -1,7 +1,5 @@
 const { getProductTypes, getOneProductType, deleteOneProductType, postProductType, putProductType } = require('../models/productTypesModel');
 
-const { dbDeleteEmployeeProductTypes } = require('../models/Employee-ProductType');
-
 module.exports.getAllProductTypes = (req, res, next) => {
     getProductTypes()
     .then( (productTypes) => {

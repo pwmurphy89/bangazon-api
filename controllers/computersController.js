@@ -1,7 +1,5 @@
 const { getComputers, getOneComputer, deleteOneComputer, postComputer, putComputer } = require('../models/computersModel');
 
-const { dbDeleteEmployeeComputers } = require('../models/Employee-Computer');
-
 module.exports.getAllComputers = (req, res, next) => {
     getComputers()
     .then( (computers) => {

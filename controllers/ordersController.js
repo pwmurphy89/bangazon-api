@@ -1,7 +1,5 @@
 const { getOrders, getOneOrder, deleteOneOrder, postOrder, putOrder } = require('../models/ordersModel');
 
-const { dbDeleteEmployeeOrders } = require('../models/Employee-Order');
-
 module.exports.getAllOrders = (req, res, next) => {
     getOrders()
     .then( (orders) => {

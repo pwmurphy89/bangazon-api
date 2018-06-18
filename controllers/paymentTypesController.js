@@ -1,7 +1,5 @@
 const { getPaymentTypes, getOnePaymentType, deleteOnePaymentType, postPaymentType, putPaymentType } = require('../models/paymentTypesModel');
 
-const { dbDeleteEmployeePaymentTypes } = require('../models/Employee-PaymentType');
-
 module.exports.getAllPaymentTypes = (req, res, next) => {
     getPaymentTypes()
     .then( (paymentTypes) => {

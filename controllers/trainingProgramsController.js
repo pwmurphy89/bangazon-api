@@ -1,7 +1,5 @@
 const { getTrainingPrograms, getOneTrainingProgram, deleteOneTrainingProgram, postTrainingProgram, putTrainingProgram } = require('../models/trainingProgramsModel');
 
-const { dbDeleteEmployeeTrainingPrograms } = require('../models/Employee-TrainingProgram');
-
 module.exports.getAllTrainingPrograms = (req, res, next) => {
     getTrainingPrograms()
     .then( (trainingPrograms) => {
