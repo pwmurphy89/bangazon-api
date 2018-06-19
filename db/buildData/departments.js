@@ -3,7 +3,7 @@ const { numbers: {numDepartments, numEmployees} } = require("./numbers.json")
 
 module.exports.buildDepartments = function(){
     let departments = [];
-    for(let i=0;i<numDepartments.length;i++){
+    for(let i=0;i<numDepartments;i++){
        departments.push({
            name: faker.name.jobArea(),
            supervisor: Math.floor(Math.random() * numEmployees) +1,

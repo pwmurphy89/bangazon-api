@@ -16,7 +16,7 @@ const computers = buildComputers()
 const departments = buildDepartments()
 const employees = buildEmployees()
 const trainingPrograms = buildTrainingPrograms()
-const employeeTraining = buildEmployeeTraining()
+const employeeTraining = buildEmployeeTraining(trainingPrograms)
 const users = buildUsers()
 const paymentTypes = buildPaymentTypes()
 const orders = buildOrders()
@@ -99,7 +99,7 @@ db.serialize(function () {
     )
     users.forEach(({ firstName, lastName, accountDate}) => {
         db.run(`INSERT INTO users (firstName, lastName, accountDate)
-                VALUES (${firstName}, "${lastName}", ${accountDate})`);
+                VALUES ("${firstName}", "${lastName}", "${accountDate}")`);
         });
 
     db.run(`DROP TABLE IF EXISTS paymentTypes`)
@@ -122,7 +122,7 @@ db.serialize(function () {
         productId INT NOT NULL,
         orderDate TEXT NOT NULL,
         paymentTypeId INT,
-        FOREIGN KEY(customersId) REFERENCES users(id),
+        FOREIGN KEY(customerId) REFERENCES users(id),
         FOREIGN KEY(productId) REFERENCES products(id),
         FOREIGN KEY(paymentTypeId) REFERENCES paymentTypes(id))`
     )
@@ -147,13 +147,12 @@ db.serialize(function () {
         productTypeId INT NOT NULL,
         price INT NOT NULL,
         title TEXT NOT NULL,
-        description TEXT NOT NULL,
         userId INT NOT NULL,
         FOREIGN KEY(productTypeId) REFERENCES productTypes(id),
         FOREIGN KEY(userId) REFERENCES users(id))`
     )
     products.forEach(({ productTypeId, price, title, description, userId}) => {
-        db.run(`INSERT INTO products (productTypeId, price, title, description, userId)
-                VALUES (${productTypeId}, ${price}, "${title}", "${description}", ${userId})`);
+        db.run(`INSERT INTO products (productTypeId, price, title, userId)
+                VALUES (${productTypeId}, ${price}, "${title}", ${userId})`);
         });
 })

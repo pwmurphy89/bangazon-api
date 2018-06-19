@@ -3,7 +3,7 @@ const {numbers: {numProductTypes} } = require("./numbers.json")
 
 module.exports.buildProductTypes = function(){
     let productTypes = [];
-    for(let i=0;i<numProductTypes.length;i++){
+    for(let i=0;i<numProductTypes;i++){
        productTypes.push({
            type: faker.commerce.department()
        })
